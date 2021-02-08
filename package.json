@@ -1,0 +1,27 @@
+{
+  "name": "depstats",
+  "version": "0.0.0",
+  "description": "Groups modules by package and includes stats.",
+  "main": "dist/depstats.js",
+  "types": "src/depstats.ts",
+  "scripts": {
+    "pretest": "(cd ./tests/fixtures/express-app && yarn)",
+    "test": "node tests/*",
+    "build": "tsc"
+  },
+  "author": "Thorsten Lorenz <thlorenz@gmx.de>",
+  "license": "MIT",
+  "private": false,
+  "repository": "git@github.com:thlorenz/depstats.git",
+  "devDependencies": {
+    "@types/debug": "^4.1.5",
+    "@types/node": "^14.14.25",
+    "tape": "^5.1.1"
+  },
+  "dependencies": {
+    "debug": "^4.3.1",
+    "find-up": "^5.0.0",
+    "pretty-bytes": "^5.5.0",
+    "tslib": "^2.1.0"
+  }
+}
