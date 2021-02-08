@@ -1,5 +1,6 @@
 'use strict'
 
+const { inspect } = require('util')
 const test = require('tape')
 const path = require('path')
 const { depStats } = require('../')
@@ -46,37 +47,43 @@ test('express app: body-parser modules', async (t) => {
             modulePath: 'index.js',
             relPath: 'node_modules/body-parser/index.js',
             fullPath: 'full:node_modules/body-parser/index.js',
-            size: '2.66 kB',
+            size: 2656,
+            humanSize: '2.66 kB',
           },
           {
             modulePath: 'lib/read.js',
             relPath: 'node_modules/body-parser/lib/read.js',
             fullPath: 'full:node_modules/body-parser/lib/read.js',
-            size: '3.89 kB',
+            size: 3894,
+            humanSize: '3.89 kB',
           },
           {
             modulePath: 'lib/types/json.js',
             relPath: 'node_modules/body-parser/lib/types/json.js',
             fullPath: 'full:node_modules/body-parser/lib/types/json.js',
-            size: '4.92 kB',
+            size: 4918,
+            humanSize: '4.92 kB',
           },
           {
             modulePath: 'lib/types/raw.js',
             relPath: 'node_modules/body-parser/lib/types/raw.js',
             fullPath: 'full:node_modules/body-parser/lib/types/raw.js',
-            size: '1.88 kB',
+            size: 1884,
+            humanSize: '1.88 kB',
           },
           {
             modulePath: 'lib/types/text.js',
             relPath: 'node_modules/body-parser/lib/types/text.js',
             fullPath: 'full:node_modules/body-parser/lib/types/text.js',
-            size: '2.29 kB',
+            size: 2285,
+            humanSize: '2.29 kB',
           },
           {
             modulePath: 'lib/types/urlencoded.js',
             relPath: 'node_modules/body-parser/lib/types/urlencoded.js',
             fullPath: 'full:node_modules/body-parser/lib/types/urlencoded.js',
-            size: '5.8 kB',
+            size: 5797,
+            humanSize: '5.8 kB',
           },
         ],
       },
@@ -85,6 +92,7 @@ test('express app: body-parser modules', async (t) => {
 
   generalizeFullPaths(res)
 
+  // console.log(inspect(Array.from(res), { depth: 5 }))
   t.deepEqual(Array.from(res), expected, 'grouped map')
   t.end()
 })
@@ -117,19 +125,22 @@ test('express app: some body-parser + some express modules', async (t) => {
             modulePath: 'index.js',
             relPath: 'node_modules/body-parser/index.js',
             fullPath: 'full:node_modules/body-parser/index.js',
-            size: '2.66 kB',
+            size: 2656,
+            humanSize: '2.66 kB',
           },
           {
             modulePath: 'lib/read.js',
             relPath: 'node_modules/body-parser/lib/read.js',
             fullPath: 'full:node_modules/body-parser/lib/read.js',
-            size: '3.89 kB',
+            size: 3894,
+            humanSize: '3.89 kB',
           },
           {
             modulePath: 'lib/types/json.js',
             relPath: 'node_modules/body-parser/lib/types/json.js',
             fullPath: 'full:node_modules/body-parser/lib/types/json.js',
-            size: '4.92 kB',
+            size: 4918,
+            humanSize: '4.92 kB',
           },
         ],
       },
@@ -147,37 +158,43 @@ test('express app: some body-parser + some express modules', async (t) => {
             modulePath: 'index.js',
             relPath: 'node_modules/express/index.js',
             fullPath: 'full:node_modules/express/index.js',
-            size: '224 B',
+            size: 224,
+            humanSize: '224 B',
           },
           {
             modulePath: 'lib/express.js',
             relPath: 'node_modules/express/lib/express.js',
             fullPath: 'full:node_modules/express/lib/express.js',
-            size: '2.41 kB',
+            size: 2409,
+            humanSize: '2.41 kB',
           },
           {
             modulePath: 'lib/middleware/init.js',
             relPath: 'node_modules/express/lib/middleware/init.js',
             fullPath: 'full:node_modules/express/lib/middleware/init.js',
-            size: '853 B',
+            size: 853,
+            humanSize: '853 B',
           },
           {
             modulePath: 'lib/middleware/query.js',
             relPath: 'node_modules/express/lib/middleware/query.js',
             fullPath: 'full:node_modules/express/lib/middleware/query.js',
-            size: '885 B',
+            size: 885,
+            humanSize: '885 B',
           },
           {
             modulePath: 'lib/router/index.js',
             relPath: 'node_modules/express/lib/router/index.js',
             fullPath: 'full:node_modules/express/lib/router/index.js',
-            size: '14.9 kB',
+            size: 14883,
+            humanSize: '14.9 kB',
           },
           {
             modulePath: 'lib/router/layer.js',
             relPath: 'node_modules/express/lib/router/layer.js',
             fullPath: 'full:node_modules/express/lib/router/layer.js',
-            size: '3.3 kB',
+            size: 3296,
+            humanSize: '3.3 kB',
           },
         ],
       },

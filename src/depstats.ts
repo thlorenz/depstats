@@ -8,7 +8,7 @@ import prettyBytes from 'pretty-bytes'
 const logError = debug('depstats:error')
 
 type ModulePathInfo = { packagePath: string; relPath: string; fullPath: string }
-type ModuleInfo = ModulePathInfo & { size: string }
+type ModuleInfo = ModulePathInfo & { size: number; humanSize: string }
 export type PackageInfo = {
   name: string
   version: string
@@ -92,7 +92,7 @@ class DepStats {
   private _modulesStats(modules: ModulePathInfo[]): ModuleInfo[] {
     return modules.map((x) => {
       const stats = fs.statSync(x.fullPath)
-      return { ...x, size: prettyBytes(stats.size) }
+      return { ...x, size: stats.size, humanSize: prettyBytes(stats.size) }
     })
   }
 }

@@ -42,22 +42,25 @@ Outputs the below where `full:` is the actual full path for your case.
           modulePath: 'index.js',
           relPath: 'node_modules/body-parser/index.js',
           fullPath: 'full:node_modules/body-parser/index.js',
-          size: '2.66 kB',
+          size: 2656,
+          humanSize: '2.66 kB'
         },
         {
           modulePath: 'lib/read.js',
           relPath: 'node_modules/body-parser/lib/read.js',
           fullPath: 'full:node_modules/body-parser/lib/read.js',
-          size: '3.89 kB',
+          size: 3894,
+          humanSize: '3.89 kB'
         },
         {
           modulePath: 'lib/types/json.js',
           relPath: 'node_modules/body-parser/lib/types/json.js',
           fullPath: 'full:node_modules/body-parser/lib/types/json.js',
-          size: '4.92 kB',
-        },
-      ],
-    },
+          size: 4918,
+          humanSize: '4.92 kB'
+        }
+      ]
+    }
   ],
   [
     'express@4.17.1',
@@ -72,41 +75,47 @@ Outputs the below where `full:` is the actual full path for your case.
           modulePath: 'index.js',
           relPath: 'node_modules/express/index.js',
           fullPath: 'full:node_modules/express/index.js',
-          size: '224 B',
+          size: 224,
+          humanSize: '224 B'
         },
         {
           modulePath: 'lib/express.js',
           relPath: 'node_modules/express/lib/express.js',
           fullPath: 'full:node_modules/express/lib/express.js',
-          size: '2.41 kB',
+          size: 2409,
+          humanSize: '2.41 kB'
         },
         {
           modulePath: 'lib/middleware/init.js',
           relPath: 'node_modules/express/lib/middleware/init.js',
           fullPath: 'full:node_modules/express/lib/middleware/init.js',
-          size: '853 B',
+          size: 853,
+          humanSize: '853 B'
         },
         {
           modulePath: 'lib/middleware/query.js',
           relPath: 'node_modules/express/lib/middleware/query.js',
           fullPath: 'full:node_modules/express/lib/middleware/query.js',
-          size: '885 B',
+          size: 885,
+          humanSize: '885 B'
         },
         {
           modulePath: 'lib/router/index.js',
           relPath: 'node_modules/express/lib/router/index.js',
           fullPath: 'full:node_modules/express/lib/router/index.js',
-          size: '14.9 kB',
+          size: 14883,
+          humanSize: '14.9 kB'
         },
         {
           modulePath: 'lib/router/layer.js',
           relPath: 'node_modules/express/lib/router/layer.js',
           fullPath: 'full:node_modules/express/lib/router/layer.js',
-          size: '3.3 kB',
-        },
-      ],
-    },
-  ],
+          size: 3296,
+          humanSize: '3.3 kB'
+        }
+      ]
+    }
+  ]
 ]
 ```
 
