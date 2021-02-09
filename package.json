@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Groups modules by package and includes stats.",
   "main": "dist/depstats.js",
-  "types": "src/depstats.ts",
+  "types": "dist/depstats.d.ts",
   "scripts": {
     "pretest": "(cd ./tests/fixtures/express-app && yarn)",
     "test": "node tests/*",
@@ -11,6 +11,9 @@
     "lint": "prettier -c ./src/",
     "lint:fix": "prettier --format ./src"
   },
+  "files": [
+    "dist/*"
+  ],
   "author": "Thorsten Lorenz <thlorenz@gmx.de>",
   "license": "MIT",
   "private": false,
