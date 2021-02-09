@@ -1,6 +1,6 @@
 {
   "name": "depstats",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Groups modules by package and includes stats.",
   "main": "dist/depstats.js",
   "types": "dist/depstats.d.ts",
