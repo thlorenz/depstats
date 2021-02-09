@@ -116,3 +116,20 @@ export function depStats(
   confirmedModules.sort()
   return new DepStats(basedir, confirmedModules).analyze()
 }
+
+export type ModulePackageInfo = {
+  pkg: Omit<PackageInfo, 'modules'>
+  mdl: ModuleInfo
+}
+
+export function modulePackageInfo(
+  packages: Map<string, PackageInfo>,
+  fullPath: string
+): ModulePackageInfo | undefined {
+  for (const pkg of packages.values()) {
+    const mdl = pkg.modules.find((x) => x.fullPath === fullPath)
+    if (mdl == null) continue
+    const { modules, ...rest } = pkg
+    return { pkg: rest, mdl }
+  }
+}

@@ -3,7 +3,7 @@
 const { inspect } = require('util')
 const test = require('tape')
 const path = require('path')
-const { depStats } = require('../')
+const { depStats, modulePackageInfo } = require('../')
 
 const expressAppDir = path.join(__dirname, 'fixtures', 'express-app')
 
@@ -204,5 +204,40 @@ test('express app: some body-parser + some express modules', async (t) => {
   generalizeFullPaths(res)
 
   t.deepEqual(Array.from(res), expected, 'grouped map')
+  t.end()
+})
+test('express app: body-parser module package info', async (t) => {
+  const res = await depStats(expressAppDir, [
+    './node_modules/body-parser/lib/types/json.js',
+    './node_modules/body-parser/lib/types/raw.js',
+    './node_modules/body-parser/lib/types/text.js',
+    './node_modules/body-parser/lib/types/urlencoded.js',
+    './node_modules/body-parser/lib/read.js',
+    './node_modules/body-parser/index.js',
+  ])
+
+  const file = path.resolve(
+    expressAppDir,
+    './node_modules/body-parser/lib/types/text.js'
+  )
+  const packageInfo = modulePackageInfo(res, file)
+  const expected = {
+    pkg: {
+      name: 'body-parser',
+      version: '1.19.0',
+      main: 'index.js',
+      fullPath: path.resolve(expressAppDir, './node_modules/body-parser'),
+      relPath: 'node_modules/body-parser',
+    },
+    mdl: {
+      modulePath: 'lib/types/text.js',
+      relPath: 'node_modules/body-parser/lib/types/text.js',
+      fullPath: file,
+      size: 2285,
+      humanSize: '2.29 kB',
+    },
+  }
+
+  t.deepEqual(packageInfo, expected)
   t.end()
 })

@@ -119,6 +119,42 @@ Outputs the below where `full:` is the actual full path for your case.
 ]
 ```
 
+### ModuleInfo
+
+Allows retrieving info including of its containing package for a specific file.
+
+Given `depstats` obtained previously.
+
+```js
+const file = path.resolve(
+  appRootDir,
+  './node_modules/body-parser/lib/types/text.js'
+)
+const packageInfo = modulePackageInfo(depstats, file)
+console.log(inspect(packageInfo, { depth: 5 }))
+```
+
+Outputs the below where `full:` is the actual full path for your case.
+
+```
+{
+  pkg: {
+    name: 'body-parser',
+    version: '1.19.0',
+    main: 'index.js',
+    fullPath: 'full:node_modules/body-parser',
+    relPath: 'node_modules/body-parser'
+  },
+  mdl: {
+    modulePath: 'lib/types/text.js',
+    relPath: 'node_modules/body-parser/lib/types/text.js',
+    fullPath: 'full:node_modules/body-parser/lib/types/text.js',
+    size: 2285,
+    humanSize: '2.29 kB'
+  }
+}
+```
+
 ## LICENSE
 
 MIT
